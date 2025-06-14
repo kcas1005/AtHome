@@ -1,4 +1,25 @@
 {
     "commentTranslate.targetLanguage": "ko",
-    "commentTranslate.hover.enabled": true
+    "commentTranslate.hover.enabled": true,
+     // PowerShell을 기본 터미널 프로필로 설정하고, 시작 시 UTF-8 인코딩을 적용합니다.
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "terminal.integrated.profiles.windows": {
+        "PowerShell": {
+            "source": "PowerShell",
+            "icon": "terminal-powershell",
+            // PowerShell 시작 시 chcp 65001 (UTF-8) 명령을 실행합니다.
+            "args": ["-NoExit", "-Command", "chcp 65001"]
+        },
+        "Command Prompt": {
+            "path": [
+                "${env:windir}\\System32\\cmd.exe"
+            ],
+            "icon": "terminal-cmd",
+            // CMD 시작 시 chcp 65001 (UTF-8) 명령을 실행합니다.
+            "args": ["/K", "chcp 65001"]
+        }
+    },
+    // 혹시 모르니 인코딩을 UTF-8로 명시적으로 설정해봅니다. (가장 중요)
+    "files.encoding": "utf8",
+    "files.autoGuessEncoding": true
 }
